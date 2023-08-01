@@ -9,7 +9,7 @@ public class UsersUI {
     }
     protected static void index(IOperation<User> list){
 
-        if(list.getAll() !=null){
+        if(!list.getAll().isEmpty()){
             Main.printf("%n%nUsers: %n");
             Main.printf("-".repeat(40));
             showAll(list);
@@ -86,7 +86,7 @@ public class UsersUI {
     }
 
     protected static void toFind(IOperation<User> list){
-        if(list.getAll() !=null){
+        if(!list.getAll().isEmpty()){
             Main.printf("%nPlease, enter the ID of the User: ");
             int id = Main.checkInput();
             User u = list.find(id);
@@ -108,7 +108,7 @@ public class UsersUI {
 
     protected static boolean findNew(IOperation<User> list, User newUser){
         boolean result = false;
-        if(list.getAll() != null){
+        if(!list.getAll().isEmpty()){
             for(int i=0; i < list.getAll().size(); i++){
                 User db = list.getAll().get(i);
                 result =  !db.getUserName().equalsIgnoreCase(newUser.getUserName());

@@ -6,7 +6,7 @@ public class ProductsUI {
     private ProductsUI(){}
     protected static void index(IOperation<Product> list){
 
-        if(list.getAll() !=null){
+        if(!list.getAll().isEmpty()){
             Main.printf("%n%nProducts: %n");
             Main.printf("-".repeat(40));
             showAllProducts(list);
@@ -83,7 +83,7 @@ public class ProductsUI {
     }
 
     protected static void toFind(IOperation<Product> list){
-        if(list.getAll() !=null){
+        if(!list.getAll().isEmpty()){
             Main.printf("%nPlease, enter the ID of the product: ");
             int id = Main.checkInput();
             Product product = list.find(id);
@@ -105,7 +105,7 @@ public class ProductsUI {
     }
     protected static boolean findNew(IOperation<Product> list, Product nproduct){
         boolean result = false;
-        if(list.getAll() != null){
+        if(!list.getAll().isEmpty()){
             for(int i=0; i < list.getAll().size(); i++){
                 Product db = list.getAll().get(i);
                 result =  !db.getName().equalsIgnoreCase(nproduct.getName());

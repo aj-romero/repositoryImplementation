@@ -9,7 +9,7 @@ public class CountriesUI {
     }
     protected static void index(IOperation<Country> list){
 
-        if(list.getAll() !=null){
+        if(!list.getAll().isEmpty()){
             Main.printf("%n%nCountries: %n");
             Main.printf("-".repeat(40));
             showAll(list);
@@ -84,7 +84,7 @@ public class CountriesUI {
     }
 
     protected static void toFind(IOperation<Country> list){
-        if(list.getAll() !=null){
+        if(!list.getAll().isEmpty()){
             Main.printf("%nPlease, enter the ID of the Country: ");
             int id = Main.checkInput();
             Country c = list.find(id);
@@ -106,7 +106,7 @@ public class CountriesUI {
 
     protected static boolean findNew(IOperation<Country> list, Country newCountry){
         boolean result = false;
-        if(list.getAll() != null){
+        if(!list.getAll().isEmpty()){
             for(int i=0; i < list.getAll().size(); i++){
                 Country db = list.getAll().get(i);
                 result =  !db.getName().equalsIgnoreCase(newCountry.getName());

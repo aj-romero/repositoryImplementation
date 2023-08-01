@@ -7,13 +7,7 @@ public class DataStore<T extends ITypes> implements IOperation<T>{
     List<T> appList = new ArrayList<>();
     @Override
     public boolean save(T element) {
-        if(appList.contains(element)){
-            return false;
-        }
-        else {
-            appList.add(element);
-        }
-        return true;
+        return appList.add(element);
     }
 
     @Override
@@ -36,12 +30,7 @@ public class DataStore<T extends ITypes> implements IOperation<T>{
     }
     @Override
     public List<T> getAll(){
-        if(appList.isEmpty()){
-            return null;
-        }
-        else{
-            return this.appList;
-        }
+        return appList;
     }
 
 }
