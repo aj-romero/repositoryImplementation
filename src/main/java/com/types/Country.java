@@ -1,4 +1,4 @@
-package types;
+package com.types;
 
 import lombok.*;
 

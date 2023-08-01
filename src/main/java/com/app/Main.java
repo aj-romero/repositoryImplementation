@@ -1,7 +1,9 @@
-package org.example;
-import Operation.DataStore;
-import Operation.IOperation;
-import types.*;
+package com.app;
+import com.operation.DataStore;
+import com.operation.IOperation;
+import com.types.Country;
+import com.types.Product;
+import com.types.User;
 
 import java.util.Scanner;
 
@@ -11,11 +13,8 @@ public class Main {
     private static final IOperation<Country> countries = new DataStore<>();
     protected static Scanner es = new Scanner(System.in);
     public static void main(String[] args) {
-
         printInstructions();
         actions();
-
-
     }
 
     protected static void printInstructions(){
@@ -30,26 +29,20 @@ public class Main {
         System.out.printf(s);
     }
     protected static void actions() {
-        int action = 0;
-        action = checkInput();
+        int action = checkInput();
         if (action >= 0 && action <= 3) {
             switch (action) {
-                case 0:
+                case 0 -> {
                     printf("%n See you later!");
                     System.exit(0);
-                    break;
-                case 1:
-                    ProductsUI.index(products);
-                    break;
-                case 2:
-                    UsersUI.index(users);
-                    break;
-                case 3:
-                    CountriesUI.index(countries);
-                    break;
-                default:
+                }
+                case 1 -> ProductsUI.index(products);
+                case 2 -> UsersUI.index(users);
+                case 3 -> CountriesUI.index(countries);
+                default -> {
                     printInstructions();
                     actions();
+                }
             }
         } else {
             printInstructions();
@@ -66,8 +59,7 @@ public class Main {
                 acc = Integer.parseInt(es.nextLine());
                 b = false;
             } catch (Exception e) {
-                b = true;
-                printf("El dato no es valido, favor ingreselo de nuevo");
+                printf("Please, type again a valid integer[]: ");
             }
         }
         return acc;

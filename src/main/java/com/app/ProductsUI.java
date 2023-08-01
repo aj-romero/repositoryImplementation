@@ -1,6 +1,6 @@
-package org.example;
-import Operation.IOperation;
-import types.Product;
+package com.app;
+import com.operation.IOperation;
+import com.types.Product;
 
 public class ProductsUI {
     private ProductsUI(){}
@@ -35,30 +35,24 @@ public class ProductsUI {
         Main.printf("%nEnter your choice[]: ");
     }
     protected static void actions(IOperation<Product> list) {
-        int action = 0;
-        action = Main.checkInput();
+        int action =  Main.checkInput();
         if (action >= 0 && action <= 4) {
             switch (action) {
-                case 0:
+                case 0 -> {
                     Main.printf("%n See you later!");
                     System.exit(0);
-                    break;
-                case 1:
-                    toSave(list);
-                    break;
-                case 2:
-                    toCount(list);
-                    break;
-                case 3:
-                    toFind(list);
-                    break;
-                case 4:
+                }
+                case 1 -> toSave(list);
+                case 2 -> toCount(list);
+                case 3 -> toFind(list);
+                case 4 -> {
                     Main.printInstructions();
                     Main.actions();
-                    break;
-                default:
+                }
+                default -> {
                     printInstructions();
                     actions(list);
+                }
             }
         } else {
             printInstructions();

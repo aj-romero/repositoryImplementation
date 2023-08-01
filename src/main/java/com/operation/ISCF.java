@@ -1,6 +1,6 @@
-package Operation;
+package com.operation;
 
-import types.ITypes;
+import com.types.ITypes;
 
 public interface ISCF<T extends ITypes> {
     boolean save(T element);
