@@ -5,6 +5,7 @@ import java.util.List;
 
 public class DataStore<T extends ITypes> implements IOperation<T>{
     List<T> appList = new ArrayList<>();
+
     @Override
     public boolean save(T element) {
         return appList.add(element);
@@ -32,5 +33,6 @@ public class DataStore<T extends ITypes> implements IOperation<T>{
     public List<T> getAll(){
         return appList;
     }
+
 
 }

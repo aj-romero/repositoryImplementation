@@ -1,16 +1,14 @@
 package com.app;
-import com.operation.DataStore;
-import com.operation.IOperation;
-import com.types.Country;
-import com.types.Product;
-import com.types.User;
+import com.application.CountryApp;
+import com.application.ProductApp;
+import com.application.UserApp;
 
 import java.util.Scanner;
 
 public class Main {
-    private static final IOperation<Product> products = new DataStore<>();
-    private static final IOperation<User> users = new DataStore<>();
-    private static final IOperation<Country> countries = new DataStore<>();
+    private static final ProductApp appProduct = new ProductApp();
+    private static final CountryApp appCountry = new CountryApp();
+    private static final UserApp appUser = new UserApp();
     protected static Scanner es = new Scanner(System.in);
     public static void main(String[] args) {
         printInstructions();
@@ -36,9 +34,9 @@ public class Main {
                     printf("%n See you later!");
                     System.exit(0);
                 }
-                case 1 -> ProductsUI.index(products);
-                case 2 -> UsersUI.index(users);
-                case 3 -> CountriesUI.index(countries);
+                case 1 -> appProduct.index();
+                case 2 -> appUser.index();
+                case 3 -> appCountry.index();
                 default -> {
                     printInstructions();
                     actions();
