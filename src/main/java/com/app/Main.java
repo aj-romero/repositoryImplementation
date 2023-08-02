@@ -2,7 +2,6 @@ package com.app;
 import com.application.CountryApp;
 import com.application.ProductApp;
 import com.application.UserApp;
-
 import java.util.Scanner;
 
 public class Main {
@@ -27,7 +26,7 @@ public class Main {
         System.out.printf(s);
     }
     protected static void actions() {
-        int action = checkInput();
+        int action = appProduct.checkInput();
         if (action >= 0 && action <= 3) {
             switch (action) {
                 case 0 -> {
@@ -49,18 +48,5 @@ public class Main {
         }
     }
 
-    protected static int checkInput() {
-        int acc = 0;
-        boolean b = true;
-        while (b) {
-            try {
-                acc = Integer.parseInt(es.nextLine());
-                b = false;
-            } catch (Exception e) {
-                printf("Please, type again a valid integer[]: ");
-            }
-        }
-        return acc;
-    }
 }
 
