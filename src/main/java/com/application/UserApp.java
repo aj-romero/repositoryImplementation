@@ -2,7 +2,6 @@ package com.application;
 
 import com.operation.DataStore;
 import com.operation.IOperation;
-import com.types.ITypes;
 import com.types.User;
 
 public class UserApp extends MainApp{
