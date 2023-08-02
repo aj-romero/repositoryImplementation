@@ -50,30 +50,13 @@ public class ProductApp extends MainApp{
 
     @Override
     public void toCount() {
-        printf("The count of products in store is: " + products.count());
+        toCount(products, "The count of products in store is: ");
         index();
     }
 
     @Override
     public void toFind() {
-        if(!products.getAll().isEmpty()){
-            printf("%nPlease, enter the ID of the product: ");
-            int id = checkInput();
-            Product product = products.find(id);
-            if(product != null){
-                printf("%n"+id + "- Product Name: " + product.getName()
-                        +" stock: " + product.getStock());
-                index();
-            }
-            else{
-                printf("Gring, I could not found that ID");
-                index();
-            }
-
-        }
-        else{
-            printf("Gring, I don't have any product to show you");
-            index();
-        }
+        toFind(products,"\nPlease, enter the ID of the product: ");
+        index();
     }
 }

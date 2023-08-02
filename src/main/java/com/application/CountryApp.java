@@ -48,29 +48,13 @@ public class CountryApp extends MainApp{
 
     @Override
     public void toCount() {
-        printf("The count of products in store is: " + countries.count());
+        toCount(countries, "The count of products in store is: ");
         index();
     }
 
     @Override
     public void toFind() {
-        if(!countries.getAll().isEmpty()){
-            printf("%nPlease, enter the ID of the Country: ");
-            int id = checkInput();
-            Country c = countries.find(id);
-            if(c != null){
-                printf("%n"+id + "- Country Name: " + c.getName() + ", iso code: " + c.getIsoCode()
-                );
-                index();
-            }
-            else {
-                printf("Gring, I could not found that ID");
-                index();
-            }
-        }
-        else{
-            printf("Gring, I don't have any Country to show you");
-            index();
-        }
+        toFind(countries, "\nPlease, enter the ID of the Country: ");
+        index();
     }
 }

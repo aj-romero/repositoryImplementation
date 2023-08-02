@@ -33,9 +33,7 @@ public abstract class MainApp {
                 case 1 -> toSave();
                 case 2 -> toCount();
                 case 3 -> toFind();
-                case 4 -> {
-                    Main.main(new String[]{"Arg", " Arg"});
-                }
+                case 4 -> Main.main(new String[]{"Arg", " Arg"});
                 default -> {
                     printInstructions();
                     actions();
@@ -68,6 +66,25 @@ public abstract class MainApp {
         }
         printf("%n");
         printf("-".repeat(40));
+    }
+
+    public void toCount(IOperation<? extends ITypes> list, String msj){
+        printf(msj + list.count());
+    }
+    public void toFind(IOperation<? extends ITypes> list, String msj){
+        if(!list.getAll().isEmpty()){
+            printf(msj);
+            int id = checkInput();
+            if((id >=0) && (id < list.getAll().size())){
+                printf("\n" + list.find(id).toString());
+            }
+            else {
+                printf("Gring, I could not found that ID");
+            }
+        }
+        else{
+            printf("Gring, I don't have any user to show you");
+        }
     }
 
     public abstract void toSave();

@@ -2,6 +2,7 @@ package com.application;
 
 import com.operation.DataStore;
 import com.operation.IOperation;
+import com.types.ITypes;
 import com.types.User;
 
 public class UserApp extends MainApp{
@@ -48,29 +49,16 @@ public class UserApp extends MainApp{
 
     @Override
     public void toCount() {
-        printf("The count of Users in store is: " + users.count());
+        toCount(users, "The count of Users in store is: ");
         index();
     }
 
     @Override
     public void toFind() {
-        if(!users.getAll().isEmpty()){
-            printf("%nPlease, enter the ID of the User: ");
-            int id = checkInput();
-            User u = users.find(id);
-            if(u != null){
-                printf("%n"+id + "- User Name: " + u.getUserName() + ", first name: " + u.getFirstName()
-                        +", last name: " + u.getLastName());
-                index();
-            }
-            else {
-                printf("Gring, I could not found that ID");
-                index();
-            }
-        }
-        else{
-            printf("Gring, I don't have any user to show you");
-            index();
-        }
+        toFind(users, "\nPlease, enter the ID of the User: ");
+        index();
     }
+
+
+
 }
