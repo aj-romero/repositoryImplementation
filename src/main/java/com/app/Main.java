@@ -2,13 +2,11 @@ package com.app;
 import com.application.CountryApp;
 import com.application.ProductApp;
 import com.application.UserApp;
-import java.util.Scanner;
 
 public class Main {
     private static final ProductApp appProduct = new ProductApp();
     private static final CountryApp appCountry = new CountryApp();
     private static final UserApp appUser = new UserApp();
-    protected static Scanner es = new Scanner(System.in);
     public static void main(String[] args) {
         printInstructions();
         actions();
